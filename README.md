@@ -1,4 +1,4 @@
-# express_tutorial
+# Http vs Express
 
 ## index.html
 ```html
@@ -41,18 +41,6 @@
         res.sendFile('./index.html', {
             root: __dirname
         })
-    })
-
-    app.get('/about', (req, res) => {
-        res.send('About');
-    })
-
-    app.get('/Weather', (req, res) => {
-        res.send('Weather');
-    })
-
-    app.use((req, res) => {
-        res.status(404).send('page not found');
     })
 
     app.listen(3000);

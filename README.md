@@ -1,6 +1,8 @@
 # Middlewares
 
 
+![Example](https://github.com/jesusgarcia149/express_tutorial/blob/14.-middlewares/Middlewares.png)
+
 ## index.js
 ```javascript
     const express = require("express");

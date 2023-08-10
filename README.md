@@ -1,6 +1,8 @@
 # Request Body
 
 
+![Example](https://github.com/jesusgarcia149/express_tutorial/blob/10.-Request_Body/Request_Body.png)
+
 ## index.js
 ```javascript
    // Method Express

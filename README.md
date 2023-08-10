@@ -1,4 +1,4 @@
-# express_tutorial
+# HTTP Methods in Express
 
 ## index.html
 ```html

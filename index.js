@@ -2,13 +2,32 @@ const express = require("express");
 
 const app = express();
 
-app.use(express.text());
-app.use(express.json());
-app.use(express.urlencoded({extended: false}));
+app.get('/hello/:username', (req, res) => {
+  console.log(typeof req.params.username)
+  res.send(`Hello ${req.params.username.toUpperCase}`)
+});
 
-app.post('/user', (req, res)=> {
-  console.log(req.body);
-  res.send('new user created')
+app.get('/add/:x/:y', (req, res) => {
+  console.log(req.params.x);
+  console.log(req.params.y);
+
+  const result = parseInt(req.params.x) + parseInt(req.params.y);
+  console.log(result);
+  res.send(`Result: ${result}`);
+})
+
+app.get('/users/:username/photo', (req, res) => {
+  console.log(req,params);
+  if (req.params.username === "jesus"){
+    res.sendFile('./Request_Body.png', {
+      root: __dirname
+    })
+  }
+  res.send('user not access')
+});
+
+app.get('/name/:name/age/:age', (req, res) => {
+  res.send(`the user ${req.params.name} have ${req.params.age} years old`);
 })
 
 app.listen(3000);

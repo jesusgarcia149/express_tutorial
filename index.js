@@ -1,11 +1,10 @@
-const express = require("express");
+const express = require("express");3
+const morgan = require("morgan");
 
 const app = express();
 
-app.use((req, res, next) => {
-  console.log(`Route: ${req.url} Method: ${req.method}`);
-  next();
-});
+app.use(express.json());
+app.use(morgan('dev'));
 
 app.get('/', (req, res) => {
   res.send('Init page');

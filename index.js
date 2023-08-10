@@ -7,6 +7,16 @@ app.get('/hello/:username', (req, res) => {
   res.send(`Hello ${req.params.username.toUpperCase}`)
 });
 
+app.get('/search', (req, res) => {
+  console.log(req.query);
+  if (req.query.q === 'javascript books'){
+    res.send('list of books javasciprt');
+  } else {
+    res.send('normal page');
+  }
+}); 
+
+
 app.get('/add/:x/:y', (req, res) => {
   console.log(req.params.x);
   console.log(req.params.y);

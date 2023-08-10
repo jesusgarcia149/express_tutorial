@@ -1,4 +1,4 @@
-# Request Params
+# Queries
 
 
 ## index.js
@@ -11,6 +11,16 @@
     console.log(typeof req.params.username)
     res.send(`Hello ${req.params.username.toUpperCase}`)
     });
+
+    app.get('/search', (req, res) => {
+    console.log(req.query);
+    if (req.query.q === 'javascript books'){
+        res.send('list of books javasciprt');
+    } else {
+        res.send('normal page');
+    }
+    }); 
+
 
     app.get('/add/:x/:y', (req, res) => {
     console.log(req.params.x);

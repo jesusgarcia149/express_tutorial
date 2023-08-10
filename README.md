@@ -1,19 +1,5 @@
-# HTTP Response
+# Request Body
 
-## index.html
-```html
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-    </head>
-    <body>
-        <h1>Hello World</h1>
-    </body>
-    </html>
-```
 
 ## index.js
 ```javascript
@@ -23,31 +9,15 @@
 
     const app = express();
 
-    app.get("/", (req, res) => {
-    res.send("Hello World");
-    });
+    app.use(express.text());
+    app.use(express.json());
+    app.use(express.urlencoded({extended: false}));
 
-    app.get("/image", (req, res) => {
-    res.sendFile("./HTTP_Methods.png", {
-        root: __dirname,
-    });
-    });
-
-    app.get("/user", (req, res) => {
-    res.json({
-        userId: 1,
-        id: 1,
-        title:
-        "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
-        body: "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto",
-    });
-    });
-
-    app.get("/isAlive", (req, res) => {
-        res.sendStatus(204)
+    app.post('/user', (req, res)=> {
+    console.log(req.body);
+    res.send('new user created')
     })
 
     app.listen(3000);
     console.log("Server on Port 3000");
-
 ```

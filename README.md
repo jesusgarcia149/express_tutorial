@@ -1,4 +1,4 @@
-# Method ALL
+# Middlewares
 
 
 ## index.js
@@ -7,8 +7,17 @@
 
     const app = express();
 
-    app.all('/info', (req, res) => {
-        res.send('server info');
+    app.use((req, res, next) => {
+    console.log(`Route ${req,url} Method: ${req.method}`);
+    next();
+    });
+
+    app.get('/profile', (req, res) => {
+    res.send('profile page');
+    });
+
+    app.all('/about', (req, res) => {
+    res.send('about page');
     });
 
     app.listen(3000);
